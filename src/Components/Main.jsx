@@ -1,54 +1,15 @@
 import React from 'react'
-import AppList from './AppList'
-import CommentList from './CommentList'
-import PhotosList from './PhotosList'
-import TodosList from './TodosList'
 
-class Main extends React.Component {
-    state = {
-        todos: [],
-        images:[],
-        posts:[],
-        comment:[]
-    }
-    componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
-        .then(response => response.json())
-        .then(data => this.setState({posts:data}))
+function Main() {
+    return (
+                <div className="header">
+                    <h1>Biz bilan yuksaklikka intiling.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem enim dignissimos id obcaecati, <br /> pariatur animi veniam eum aspernatur similique repellendus.</p>
 
-        fetch('https://jsonplaceholder.typicode.com/photos?_limit=5')
-        .then(response => response.json())
-        .then(data => this.setState({images:data}))
-
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=5') 
-        .then(response => response.json())
-        .then(data => this.setState({todos:data}))
-
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=5') 
-        .then(response => response.json())
-        .then(data => this.setState({comment:data}))
-    }
-    render() {
-        return (
-            <div className='main'>
-                <div>
-                <AppList posts={this.state.posts} />
-
+                    <button><span></span> Ro'yhatdan o'tish</button>
+                    <button><span></span> Darsni boshlash</button>
                 </div>
-                <div>
-                <PhotosList app={this.state.images}/>
-
-                </div>
-                <div>
-                    <TodosList dd={this.state.todos}/>
-                </div>
-                <div>
-                    <CommentList  comment={this.state.comment}/>
-                </div>
-                
-            </div>
-        )
-    }
+    )
 }
 
-export default Main
+export default Main;
